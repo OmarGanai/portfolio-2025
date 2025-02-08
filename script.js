@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Update all dropdown toggle buttons
                 dropdownToggles.forEach(toggle => {
                     toggle.innerHTML = `
-                        <span class="arrow">▾</span>
+                        <span class="arrow">⌄</span>
                         <span class="toggle-text">${selectedText}</span>
                     `;
                 });

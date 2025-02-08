@@ -21,6 +21,7 @@
     --font-large: 1.125rem; /* 18px */
     --color-toggle: #FFFFFF;  /* New color for toggle button */
     --color-toggle-hover: #F5F5F5;  /* Even lighter shade for hover */
+    --spacing-xl: 3rem;    /* 48px - for larger spacing needs */
 }
 
 body {
@@ -49,7 +50,7 @@ body {
     .main-content {
         margin-left: 25%;
         width: 75%;
-        padding: var(--spacing-l);
+        padding: var(--spacing-l) var(--spacing-xl);  /* Match mobile padding */
     }
 
     .mobile-header {
@@ -58,7 +59,7 @@ body {
 
     .desktop-header {
         padding: 1rem 0;
-        margin-bottom: 2rem;
+        margin-bottom: var(--spacing-xl);  /* Increase space below toggle menu */
     }
 
     .dropdown {
@@ -96,25 +97,20 @@ body {
     }
 
     .dropdown-menu {
-        display: none;  /* Hidden by default */
+        z-index: 1002;  /* Higher than other content */
         position: absolute;
-        top: calc(100% + var(--spacing-xs));
+        top: calc(100% + 8px);
         left: 0;
-        min-width: 240px;  /* Wider menu */
-        background: var(--color-toggle);  /* White background */
-        border-radius: 24px;  /* More rounded corners */
-        padding: var(--spacing-m);  /* More padding */
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);  /* Deeper, more spread shadow for menu */
-        opacity: 0;
-        transform: translateY(-8px);
-        transition: opacity 0.2s ease, transform 0.2s ease;
-        list-style: none; /* Remove bullets */
+        background: var(--color-toggle);
+        border-radius: 24px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        padding: var(--spacing-m);
+        min-width: 240px;
+        display: none;
     }
 
     .dropdown-menu.active {
         display: block;
-        opacity: 1;
-        transform: translateY(0);
     }
 
     .dropdown-menu li {
@@ -172,6 +168,10 @@ body {
         padding: var(--spacing-m) var(--spacing-l);
         gap: var(--spacing-m);
     }
+
+    section:first-of-type {
+        margin-top: var(--spacing-xl);  /* Single spacing instead of doubled */
+    }
 }
 
 /* Mobile Layout (≤768px) */
@@ -185,7 +185,7 @@ body {
         top: 0;
         left: 0;
         width: 100%;
-        padding: var(--spacing-s);
+        padding: var(--spacing-s) var(--spacing-l);  /* Match desktop padding */
         background-color: var(--color-background);
         border-bottom: 1px solid var(--color-border);
         display: flex;
@@ -196,21 +196,21 @@ body {
 
     .main-content {
         margin-top: 60px;
-        padding: 0 var(--spacing-l);  /* Increased from var(--spacing-m) to var(--spacing-l) */
+        padding: 0 var(--spacing-l);  /* Match desktop padding */
     }
 
     .mobile-controls {
         position: sticky;
         top: 60px;
-        padding: var(--spacing-l);  /* Increased from var(--spacing-m) to var(--spacing-l) */
-        margin: 0 calc(-1 * var(--spacing-l));  /* Match the new padding */
+        padding: var(--spacing-l);  /* Match desktop padding */
+        margin: 0 calc(-1 * var(--spacing-l));  /* Update margin to match new padding */
         background: transparent;
         border-bottom: none;
         z-index: 999;
     }
 
     .mobile-dropdown {
-        position: relative;  /* Add this to contain the dropdown menu */
+        position: relative;
     }
 
     .mobile-dropdown .dropdown-toggle {
@@ -232,7 +232,8 @@ body {
         display: none;
         position: absolute;
         top: calc(100% + 8px);  /* Position below toggle button */
-        right: 0;
+        left: 0;  /* Align to the left */
+        right: auto;  /* Remove right alignment */
         background: var(--color-toggle);
         border-radius: 24px;
         box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
@@ -360,10 +361,18 @@ section h2 {
     font-weight: 500;
 }
 
+/* Update date styling */
 .date, .tech-stack, .post-date {
+    color: var(--color-text);  /* Change from muted to main text color */
+    font-size: var(--font-base);  /* Increase from small to base size */
+    margin-bottom: var(--spacing-xs);
+    opacity: 0.8;  /* Slightly muted but still prominent */
+}
+
+/* Keep tech-stack muted */
+.tech-stack {
     color: var(--color-muted);
     font-size: var(--font-small);
-    margin-bottom: var(--spacing-xs);
 }
 
 /* Project Cards */
@@ -372,10 +381,6 @@ section h2 {
     padding: var(--spacing-m);
     border-radius: 8px;
     margin-bottom: var(--spacing-m);
-}
-
-.tech-stack {
-    margin: 0.5rem 0 1rem 0;
 }
 
 .project-link {
@@ -519,4 +524,16 @@ section h2 {
     list-style: none;
     margin: 0;
     padding: 0;
+}
+
+/* Ensure date is only styled in content areas */
+.work-item .date, .project-card .date, .blog-post .post-date {
+    color: var(--color-text);
+    font-size: var(--font-base);
+    opacity: 0.8;
+}
+
+/* Reset date styling in dropdown */
+.dropdown-menu .date {
+    display: none;  /* Hide dates in dropdown */
 } 
