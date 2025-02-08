@@ -78,6 +78,7 @@ body {
         display: inline-flex;
         align-items: center;
         color: var(--color-text);
+        outline: none;  /* Remove focus outline */
     }
 
     .arrow {
@@ -161,6 +162,11 @@ body {
         transform: none;
     }
 
+    /* Add arrow for items that lead somewhere */
+    .dropdown-menu a:not(.active):hover::after {
+        content: '→';
+    }
+
     /* Mobile version should match */
     .mobile-dropdown .dropdown-toggle {
         padding: var(--spacing-m) var(--spacing-l);
@@ -177,41 +183,62 @@ body {
     .mobile-header {
         position: fixed;
         top: 0;
-        left: 0;  /* Ensure full width */
+        left: 0;
         width: 100%;
         padding: var(--spacing-s);
         background-color: var(--color-background);
         border-bottom: 1px solid var(--color-border);
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        z-index: 1000;  /* Ensure it stays on top */
-        backdrop-filter: blur(8px);  /* Add slight blur to background */
+        z-index: 1000;
+        height: 60px;
     }
 
     .main-content {
-        margin-top: 48px;
-        padding: var(--spacing-m);
+        margin-top: 60px;
+        padding: 0 var(--spacing-l);  /* Increased from var(--spacing-m) to var(--spacing-l) */
     }
 
     .mobile-controls {
-        display: flex;
+        position: sticky;
+        top: 60px;
+        padding: var(--spacing-l);  /* Increased from var(--spacing-m) to var(--spacing-l) */
+        margin: 0 calc(-1 * var(--spacing-l));  /* Match the new padding */
+        background: transparent;
+        border-bottom: none;
+        z-index: 999;
+    }
+
+    .mobile-dropdown {
+        position: relative;  /* Add this to contain the dropdown menu */
+    }
+
+    .mobile-dropdown .dropdown-toggle {
+        background: var(--color-toggle);
+        border: none;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+        border-radius: 100px;
+        padding: var(--spacing-m) var(--spacing-l);
+        font-size: 0.9rem;
+        display: inline-flex;
         align-items: center;
+        gap: var(--spacing-m);
+        color: var(--color-text);
+        cursor: pointer;
+        outline: none;
     }
 
-    .mobile-dropdown .dropdown-toggle,
     .mobile-dropdown .dropdown-menu {
-        font-size: var(--font-small);
-    }
-
-    .mobile-dropdown .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);  /* Position below toggle button */
+        right: 0;
         background: var(--color-toggle);
         border-radius: 24px;
         box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
         padding: var(--spacing-m);
         min-width: 240px;
-        right: var(--spacing-s);  /* Align with padding */
-        z-index: 1001;  /* Above header */
+        z-index: 1001;
     }
 
     .mobile-dropdown .dropdown-menu.active {
@@ -219,10 +246,41 @@ body {
     }
 
     .mobile-dropdown .dropdown-menu a {
-        display: block;
-        padding: 0.5rem 1rem;
-        text-decoration: none;
+        padding: var(--spacing-m) var(--spacing-l);
         color: var(--color-text);
+        font-size: 0.9rem;
+        border-radius: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-decoration: none;
+        transition: background-color 0.2s ease;
+        margin: 2px 0;
+    }
+
+    /* Add hover and active states */
+    .mobile-dropdown .dropdown-menu a:hover {
+        background: var(--color-toggle-hover);
+    }
+
+    .mobile-dropdown .dropdown-menu a.active {
+        background: var(--color-toggle-hover);
+    }
+
+    /* Add checkmark and arrow indicators */
+    .mobile-dropdown .dropdown-menu a.active::after {
+        content: '✓';
+        opacity: 1;
+        transform: none;
+    }
+
+    .mobile-dropdown .dropdown-menu a:not(.active):hover::after {
+        content: '→';
+    }
+
+    /* Update toggle button to match desktop */
+    .mobile-dropdown .dropdown-toggle:hover {
+        background: var(--color-toggle-hover);
     }
 
     /* Hide desktop header dropdown */
@@ -239,8 +297,9 @@ body {
         font-size: 0.9rem;
     }
 
-    .mobile-dropdown .dropdown-toggle:hover {
-        background: var(--color-light-accent);
+    /* Ensure dropdown appears above content */
+    .mobile-dropdown .dropdown-menu {
+        z-index: 1001;
     }
 }
 
