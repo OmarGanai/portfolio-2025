@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omar Ganai - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Desktop Navigation (Left Column) -->
+    <nav class="desktop-nav">
+        <div class="site-title">Omar Ganai</div>
+        <ul class="nav-links">
+            <li><a href="#work">Work</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#writing">Writing</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <div class="site-title">Omar Ganai</div>
+        <button class="menu-toggle" aria-label="Toggle menu">
+            <span class="hamburger"></span>
+        </button>
+        <nav class="mobile-nav">
+            <ul class="nav-links">
+                <li><a href="#work">Work</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#writing">Writing</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Desktop Header with Dropdown -->
+        <header class="desktop-header">
+            <div class="dropdown">
+                <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                    All posts
+                    <span class="arrow">▼</span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#" class="active">All posts</a></li>
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#writing">Writing</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <section id="work">
+            <h2>Work</h2>
+            <div class="work-item">
+                <h3>Senior Software Engineer at TechCorp</h3>
+                <p class="date">2021 - Present</p>
+                <p>Led development of cloud-native applications serving millions of users. Architected and implemented microservices infrastructure using Kubernetes and Docker. Mentored junior developers and established best practices for the team.</p>
+            </div>
+            <div class="work-item">
+                <h3>Software Engineer at StartupX</h3>
+                <p class="date">2018 - 2021</p>
+                <p>Full-stack development of consumer-facing web applications. Implemented real-time features using WebSocket technology. Reduced page load times by 60% through optimization efforts.</p>
+            </div>
+            <div class="work-item">
+                <h3>Junior Developer at DevShop</h3>
+                <p class="date">2016 - 2018</p>
+                <p>Developed and maintained client websites using React and Node.js. Collaborated with designers to implement pixel-perfect UIs. Participated in agile development processes.</p>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-card">
+                <h3>AI Image Generator</h3>
+                <p class="tech-stack">Python • PyTorch • React</p>
+                <p>A web application that generates artistic images from text descriptions using deep learning. Implemented with a React frontend and Python backend using PyTorch.</p>
+                <a href="#" class="project-link">View Project →</a>
+            </div>
+            <div class="project-card">
+                <h3>Real-time Chat Platform</h3>
+                <p class="tech-stack">Node.js • Socket.io • MongoDB</p>
+                <p>Scalable chat application supporting multiple rooms and direct messaging. Features include file sharing, message history, and user presence indicators.</p>
+                <a href="#" class="project-link">View Project →</a>
+            </div>
+            <div class="project-card">
+                <h3>Personal Finance Tracker</h3>
+                <p class="tech-stack">Vue.js • Express • PostgreSQL</p>
+                <p>Full-stack application for tracking expenses and investments. Includes data visualization, budget planning, and automated expense categorization.</p>
+                <a href="#" class="project-link">View Project →</a>
+            </div>
+        </section>
+
+        <section id="writing">
+            <h2>Writing</h2>
+            <article class="blog-post">
+                <h3>Understanding WebAssembly: A Practical Guide</h3>
+                <p class="post-date">March 15, 2024</p>
+                <p>An in-depth exploration of WebAssembly and its practical applications in web development. Learn how to leverage WASM to improve application performance.</p>
+                <a href="#" class="read-more">Read More →</a>
+            </article>
+            <article class="blog-post">
+                <h3>Building Scalable Microservices with Go</h3>
+                <p class="post-date">February 28, 2024</p>
+                <p>A comprehensive guide to building and deploying microservices using Go. Covers service discovery, load balancing, and monitoring.</p>
+                <a href="#" class="read-more">Read More →</a>
+            </article>
+            <article class="blog-post">
+                <h3>React Performance Optimization Techniques</h3>
+                <p class="post-date">January 10, 2024</p>
+                <p>Practical tips and techniques for optimizing React applications. Includes code examples and performance benchmarks.</p>
+                <a href="#" class="read-more">Read More →</a>
+            </article>
+        </section>
+
+        <section id="about">
+            <h2>About</h2>
+            <div class="about-content">
+                <p>Hi, I'm Omar! I'm a software engineer passionate about building scalable web applications and exploring new technologies. With over 8 years of experience in full-stack development, I specialize in creating efficient, user-friendly solutions to complex problems.</p>
+                <p>When I'm not coding, you can find me writing technical articles, contributing to open-source projects, or speaking at tech conferences. I'm particularly interested in distributed systems, WebAssembly, and artificial intelligence.</p>
+                <div class="skills">
+                    <h3>Technical Skills</h3>
+                    <ul>
+                        <li>Languages: JavaScript, Python, Go, Rust</li>
+                        <li>Frontend: React, Vue.js, WebAssembly</li>
+                        <li>Backend: Node.js, Django, PostgreSQL</li>
+                        <li>DevOps: Docker, Kubernetes, AWS</li>
+                    </ul>
+                </div>
+                <div class="contact">
+                    <h3>Get in Touch</h3>
+                    <p>Feel free to reach out for collaborations or just to say hi!</p>
+                    <ul class="social-links">
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Email</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html> 
