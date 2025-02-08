@@ -2,19 +2,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // Get both desktop and mobile dropdowns
     const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
     const dropdownMenus = document.querySelectorAll('.dropdown-menu');
+    const dropdowns = document.querySelectorAll('.dropdown');
 
     // Add click handlers for all dropdown toggles
     dropdownToggles.forEach((dropdownToggle, index) => {
         const dropdownMenu = dropdownMenus[index];
+        const dropdown = dropdowns[index];
 
         // Toggle dropdown menu when clicking the button
         dropdownToggle.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevent click from bubbling to document
+            e.stopPropagation();
             
             // Close all other dropdowns first
             dropdownMenus.forEach((menu, i) => {
                 if (i !== index) {
                     menu.classList.remove('active');
+                    dropdowns[i].classList.remove('active');
                     dropdownToggles[i].setAttribute('aria-expanded', 'false');
                 }
             });
@@ -22,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Toggle this dropdown
             const isExpanded = dropdownMenu.classList.contains('active');
             dropdownMenu.classList.toggle('active');
+            dropdown.classList.toggle('active');
             dropdownToggle.setAttribute('aria-expanded', !isExpanded);
         });
 
@@ -39,18 +43,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Update all dropdown toggle buttons
                 dropdownToggles.forEach(toggle => {
-                    toggle.textContent = selectedText;
-                    const arrow = document.createElement('span');
-                    arrow.className = 'arrow';
-                    arrow.textContent = '▼';
-                    toggle.appendChild(arrow);
+                    toggle.innerHTML = `
+                        <span class="arrow">⌄</span>
+                        <span class="toggle-text">${selectedText}</span>
+                    `;
                 });
                 
                 // Close dropdown
                 dropdownMenu.classList.remove('active');
+                dropdown.classList.remove('active');
                 dropdownToggle.setAttribute('aria-expanded', 'false');
 
-                // Only scroll if it's not the "All posts" option
+                // Handle navigation
                 if (selectedText !== 'All posts') {
                     const targetId = link.getAttribute('href');
                     const target = document.querySelector(targetId);
@@ -61,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         });
                     }
                 } else {
-                    // Scroll to top for "All posts" option
                     window.scrollTo({
                         top: 0,
                         behavior: 'smooth'
@@ -74,9 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Close dropdowns when clicking outside
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.dropdown')) {
-            dropdownMenus.forEach(menu => {
-                menu.classList.remove('active');
-            });
+            dropdownMenus.forEach(menu => menu.classList.remove('active'));
+            dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
             dropdownToggles.forEach(toggle => {
                 toggle.setAttribute('aria-expanded', 'false');
             });
