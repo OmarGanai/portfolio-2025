@@ -21,17 +21,21 @@
     <!-- Mobile Header -->
     <header class="mobile-header">
         <div class="site-title">Omar Ganai</div>
-        <button class="menu-toggle" aria-label="Toggle menu">
-            <span class="hamburger"></span>
-        </button>
-        <nav class="mobile-nav">
-            <ul class="nav-links">
-                <li><a href="#work">Work</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#writing">Writing</a></li>
-                <li><a href="#about">About</a></li>
-            </ul>
-        </nav>
+        <div class="mobile-controls">
+            <div class="dropdown mobile-dropdown">
+                <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                    All posts
+                    <span class="arrow">▼</span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#" class="active">All posts</a></li>
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#writing">Writing</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </div>
+        </div>
     </header>
 
     <!-- Main Content Area -->
@@ -56,40 +60,40 @@
         <section id="work">
             <h2>Work</h2>
             <div class="work-item">
-                <h3>Senior Software Engineer at TechCorp</h3>
+                <h3>Senior Product Manager at AIScale</h3>
                 <p class="date">2021 - Present</p>
-                <p>Led development of cloud-native applications serving millions of users. Architected and implemented microservices infrastructure using Kubernetes and Docker. Mentored junior developers and established best practices for the team.</p>
+                <p>Leading AI product initiatives for enterprise customers. Launched an AI-powered document processing pipeline that reduced manual data entry by 85%. Developed go-to-market strategy for our LLM-based content generation platform. Upskilled in prompt engineering and RAG architecture to better collaborate with ML teams.</p>
             </div>
             <div class="work-item">
-                <h3>Software Engineer at StartupX</h3>
+                <h3>Product Manager at SaaSify</h3>
                 <p class="date">2018 - 2021</p>
-                <p>Full-stack development of consumer-facing web applications. Implemented real-time features using WebSocket technology. Reduced page load times by 60% through optimization efforts.</p>
+                <p>Managed B2B analytics and reporting suite used by Fortune 500 companies. Introduced automated insights feature using basic ML models, increasing user engagement by 40%. Started learning Python to prototype AI features and communicate better with engineering.</p>
             </div>
             <div class="work-item">
-                <h3>Junior Developer at DevShop</h3>
+                <h3>Associate PM at EnterpriseFlow</h3>
                 <p class="date">2016 - 2018</p>
-                <p>Developed and maintained client websites using React and Node.js. Collaborated with designers to implement pixel-perfect UIs. Participated in agile development processes.</p>
+                <p>Owned workflow automation products for enterprise clients. Developed deep understanding of B2B SaaS dynamics and enterprise sales cycles. Recognized need for technical PM skills and began transition toward AI specialization.</p>
             </div>
         </section>
 
         <section id="projects">
             <h2>Projects</h2>
             <div class="project-card">
-                <h3>AI Image Generator</h3>
-                <p class="tech-stack">Python • PyTorch • React</p>
-                <p>A web application that generates artistic images from text descriptions using deep learning. Implemented with a React frontend and Python backend using PyTorch.</p>
+                <h3>AI-Powered Content Calendar</h3>
+                <p class="tech-stack">LangChain • OpenAI • Streamlit</p>
+                <p>Built a tool that generates optimized content calendars based on company blog performance data. Uses GPT-4 for content ideation and RAG for maintaining brand voice consistency. Developed entirely through AI pair programming.</p>
                 <a href="#" class="project-link">View Project →</a>
             </div>
             <div class="project-card">
-                <h3>Real-time Chat Platform</h3>
-                <p class="tech-stack">Node.js • Socket.io • MongoDB</p>
-                <p>Scalable chat application supporting multiple rooms and direct messaging. Features include file sharing, message history, and user presence indicators.</p>
+                <h3>Customer Feedback Analyzer</h3>
+                <p class="tech-stack">Python • Hugging Face • Tableau</p>
+                <p>Created a sentiment analysis dashboard for customer feedback using open-source LLMs. Automated monthly insight reports that previously took our team 20 hours to compile. Built using AI coding assistants.</p>
                 <a href="#" class="project-link">View Project →</a>
             </div>
             <div class="project-card">
-                <h3>Personal Finance Tracker</h3>
-                <p class="tech-stack">Vue.js • Express • PostgreSQL</p>
-                <p>Full-stack application for tracking expenses and investments. Includes data visualization, budget planning, and automated expense categorization.</p>
+                <h3>AI Feature Prototyping Kit</h3>
+                <p class="tech-stack">Next.js • Vercel • OpenAI</p>
+                <p>Developed a rapid prototyping toolkit for AI features. Enables PMs to quickly test AI concepts before engineering investment. Includes templates for common use cases like classification and generation.</p>
                 <a href="#" class="project-link">View Project →</a>
             </div>
         </section>
@@ -97,21 +101,21 @@
         <section id="writing">
             <h2>Writing</h2>
             <article class="blog-post">
-                <h3>Understanding WebAssembly: A Practical Guide</h3>
+                <h3>The Full Stack PM's Guide to LLM Integration</h3>
                 <p class="post-date">March 15, 2024</p>
-                <p>An in-depth exploration of WebAssembly and its practical applications in web development. Learn how to leverage WASM to improve application performance.</p>
+                <p>A comprehensive guide for PMs on integrating LLMs into B2B products. Covers technical architecture considerations, prompt engineering best practices, and how to evaluate LLM performance in production.</p>
                 <a href="#" class="read-more">Read More →</a>
             </article>
             <article class="blog-post">
-                <h3>Building Scalable Microservices with Go</h3>
+                <h3>From Traditional PM to AI Builder</h3>
                 <p class="post-date">February 28, 2024</p>
-                <p>A comprehensive guide to building and deploying microservices using Go. Covers service discovery, load balancing, and monitoring.</p>
+                <p>My journey from traditional B2B product management to building AI features. Includes learning resources, key technical concepts for PMs, and strategies for effective collaboration with ML teams.</p>
                 <a href="#" class="read-more">Read More →</a>
             </article>
             <article class="blog-post">
-                <h3>React Performance Optimization Techniques</h3>
+                <h3>Prototyping AI Features with No-Code Tools</h3>
                 <p class="post-date">January 10, 2024</p>
-                <p>Practical tips and techniques for optimizing React applications. Includes code examples and performance benchmarks.</p>
+                <p>How to validate AI feature concepts quickly using no-code tools and AI assistants. Real examples of prototypes that went from concept to production features.</p>
                 <a href="#" class="read-more">Read More →</a>
             </article>
         </section>
@@ -119,24 +123,24 @@
         <section id="about">
             <h2>About</h2>
             <div class="about-content">
-                <p>Hi, I'm Omar! I'm a software engineer passionate about building scalable web applications and exploring new technologies. With over 8 years of experience in full-stack development, I specialize in creating efficient, user-friendly solutions to complex problems.</p>
-                <p>When I'm not coding, you can find me writing technical articles, contributing to open-source projects, or speaking at tech conferences. I'm particularly interested in distributed systems, WebAssembly, and artificial intelligence.</p>
+                <p>Hi, I'm Omar! I'm a Product Manager passionate about building AI-powered B2B SaaS products. With 8+ years in product management, I've evolved from traditional PM roles to become a "Full Stack PM" who can write, design, and code with AI to build intelligent features.</p>
+                <p>I believe the future of product management lies in the ability to prototype and validate AI features quickly. When I'm not building products, I'm writing about AI product development, experimenting with new LLM applications, or helping other PMs upskill in AI development.</p>
                 <div class="skills">
                     <h3>Technical Skills</h3>
                     <ul>
-                        <li>Languages: JavaScript, Python, Go, Rust</li>
-                        <li>Frontend: React, Vue.js, WebAssembly</li>
-                        <li>Backend: Node.js, Django, PostgreSQL</li>
-                        <li>DevOps: Docker, Kubernetes, AWS</li>
+                        <li>AI/ML: LLMs, RAG, Prompt Engineering</li>
+                        <li>Development: Python, JavaScript, LangChain</li>
+                        <li>Product: Prototyping, User Research, GTM</li>
+                        <li>Tools: Figma, Streamlit, Vercel</li>
                     </ul>
                 </div>
                 <div class="contact">
                     <h3>Get in Touch</h3>
-                    <p>Feel free to reach out for collaborations or just to say hi!</p>
+                    <p>Interested in AI product development or transitioning into a more technical PM role? Let's connect!</p>
                     <ul class="social-links">
                         <li><a href="#">Twitter</a></li>
-                        <li><a href="#">GitHub</a></li>
                         <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Substack</a></li>
                         <li><a href="#">Email</a></li>
                     </ul>
                 </div>
