@@ -229,11 +229,12 @@ body {
     }
 
     .mobile-dropdown .dropdown-menu {
-        display: none;
+        list-style: none;  /* Remove bullets */
+        padding-left: 0;   /* Remove default padding */
+        display: none;     /* Hidden by default */
         position: absolute;
-        top: calc(100% + 8px);  /* Position below toggle button */
-        left: 0;  /* Align to the left */
-        right: auto;  /* Remove right alignment */
+        top: calc(100% + 8px);
+        left: 0;
         background: var(--color-toggle);
         border-radius: 24px;
         box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
@@ -246,17 +247,27 @@ body {
         display: block;
     }
 
+    .mobile-dropdown .dropdown-menu li {
+        list-style-type: none;
+    }
+
     .mobile-dropdown .dropdown-menu a {
-        padding: var(--spacing-m) var(--spacing-l);
-        color: var(--color-text);
-        font-size: 0.9rem;
-        border-radius: 16px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         text-decoration: none;
+        padding: var(--spacing-m) var(--spacing-l);
+        color: var(--color-text);
+        font-size: 0.9rem;
+        border-radius: 16px;
         transition: background-color 0.2s ease;
         margin: 2px 0;
+    }
+
+    /* Remove any bullet-related styling */
+    .mobile-dropdown .dropdown-menu li::before,
+    .mobile-dropdown .dropdown-menu li::after {
+        content: none;
     }
 
     /* Add hover and active states */
@@ -302,18 +313,26 @@ body {
     .mobile-dropdown .dropdown-menu {
         z-index: 1001;
     }
+
+    .mobile-header .site-title {
+        margin-bottom: 0;
+    }
 }
 
 /* Navigation Styles */
 .site-title {
+    display: flex;
+    align-items: center;
     font-size: var(--font-large);
     font-weight: 500;
     letter-spacing: -0.02em;
     margin-bottom: var(--spacing-l);
 }
 
+/* Navigation Links */
 .nav-links {
     list-style: none;
+    margin-bottom: var(--spacing-l);  /* Increase space before divider */
 }
 
 .nav-links li {
@@ -326,8 +345,29 @@ body {
     font-size: var(--font-base);
 }
 
-.nav-links a:hover {
-    color: var(--color-muted);
+/* Social Links - Match nav links styling */
+.social-links {
+    list-style: none;
+    padding: 0;
+    margin-top: var(--spacing-l);  /* Space after divider */
+    border-top: 1px solid var(--color-border);  /* Add divider line */
+    padding-top: var(--spacing-l);  /* Space after divider */
+}
+
+.social-links li {
+    margin-bottom: var(--spacing-xs);
+}
+
+.social-links a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: var(--font-base);
+}
+
+/* Hover states for all links */
+.nav-links a:hover,
+.social-links a:hover {
+    text-decoration: underline;
 }
 
 /* Content Sections */
@@ -448,92 +488,84 @@ section h2 {
     margin-top: var(--spacing-l);
 }
 
-.social-links {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: var(--spacing-m);
-    margin-top: var(--spacing-s);
+/* Theme Variables */
+:root[data-theme="light"] {
+    --color-background: #FAF7F2;
+    --color-text: #1A1A1A;
+    --color-muted: #8C8C8C;
+    --color-accent: #D4C4B4;
+    --color-light-accent: #E8E2D7;
+    --color-border: #E5E0DA;
+    --color-toggle: #FFFFFF;
+    --color-toggle-hover: #F5F5F5;
 }
 
-.social-links a {
-    color: var(--color-text);
-    text-decoration: none;
+:root[data-theme="dark"] {
+    --color-background: #1A1A1A;
+    --color-text: #FFFFFF;
+    --color-muted: #8C8C8C;
+    --color-accent: #2D2D2D;
+    --color-light-accent: #333333;
+    --color-border: #404040;
+    --color-toggle: #2D2D2D;
+    --color-toggle-hover: #333333;
 }
 
-.social-links a:hover {
-    border-bottom: 1px solid var(--color-text);
+:root[data-theme="solarized"] {
+    --color-background: #FDF6E3;
+    --color-text: #657B83;
+    --color-muted: #93A1A1;
+    --color-accent: #EEE8D5;
+    --color-light-accent: #F5EFDC;
+    --color-border: #EEE8D5;
+    --color-toggle: #FDF6E3;
+    --color-toggle-hover: #EEE8D5;
 }
 
-/* Update dropdown menu styles */
-.dropdown-menu {
-    background: var(--color-toggle);  /* White background */
-    border-radius: 24px;  /* More rounded corners */
-    padding: var(--spacing-m);  /* More padding */
-    min-width: 240px;  /* Wider menu */
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);  /* Deeper, more spread shadow for menu */
+/* Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: var(--spacing-l);
+    right: var(--spacing-l);
+    padding: var(--spacing-s);
+    background: var(--color-toggle);
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
-.dropdown-menu li {
-    list-style: none; /* Remove bullets */
-    margin: 0;
-    padding: 0;
-}
-
-.dropdown-menu a {
-    padding: var(--spacing-m) var(--spacing-l);
-    color: var(--color-text);
-    font-size: 0.9rem;  /* Match left menu size */
-    border-radius: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-decoration: none;
-    transition: background-color 0.2s ease;
-    margin: 2px 0; /* Add slight spacing between items */
-}
-
-/* Add checkmark for active item */
-.dropdown-menu a.active::after {
-    content: '✓';  /* Checkmark instead of arrow */
-    opacity: 1;
-    transform: none;
-}
-
-/* Add arrow for items that lead somewhere */
-.dropdown-menu a:not(.active):hover::after {
-    content: '→';
-}
-
-/* Hover state */
-.dropdown-menu a:hover {
-    background: var(--color-toggle-hover);  /* Lighter hover state */
-}
-
-/* Selected/active state */
-.dropdown-menu a.active {
+.theme-toggle:hover {
     background: var(--color-toggle-hover);
 }
 
-/* Also update mobile dropdown to match */
-.mobile-dropdown .dropdown-menu {
-    list-style: none;
+.theme-icon {
+    font-size: 1.2rem;
+    display: block;
 }
 
-.mobile-dropdown .dropdown-menu li {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+/* Mobile adjustments */
+@media screen and (max-width: 768px) {
+    .theme-toggle {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin-left: var(--spacing-m);
+    }
+
+    .mobile-controls {
+        display: flex;
+        align-items: center;
+    }
 }
 
-/* Ensure date is only styled in content areas */
-.work-item .date, .project-card .date, .blog-post .post-date {
-    color: var(--color-text);
-    font-size: var(--font-base);
-    opacity: 0.8;
-}
-
-/* Reset date styling in dropdown */
-.dropdown-menu .date {
-    display: none;  /* Hide dates in dropdown */
+/* Profile Image Styling */
+.profile-image {
+    width: 40px;  /* Slightly smaller circle */
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 25%;  /* Move focus point up slightly */
+    margin-right: var(--spacing-s);
 } 
