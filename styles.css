@@ -40,7 +40,7 @@ body {
 
     .desktop-nav {
         position: fixed;
-        width: 25%;
+        width: 220px;  /* Reduced from 240px - more minimal */
         height: 100vh;
         padding: var(--spacing-l);
         background-color: var(--color-background);
@@ -48,9 +48,10 @@ body {
     }
 
     .main-content {
-        margin-left: 25%;
-        width: 75%;
-        padding: var(--spacing-l) var(--spacing-xl);  /* Match mobile padding */
+        margin-left: 220px;  /* Match nav width */
+        width: calc(100% - 220px);
+        padding: var(--spacing-l) var(--spacing-xl);
+        max-width: 65ch;  /* Limit line length to ~70 characters */
     }
 
     .mobile-header {
@@ -171,6 +172,11 @@ body {
 
     section:first-of-type {
         margin-top: var(--spacing-xl);  /* Single spacing instead of doubled */
+    }
+
+    /* Content paragraphs */
+    .work-item p, .project-card p, .blog-post p, .about-content p {
+        max-width: 65ch;  /* Ensure paragraphs don't exceed readable width */
     }
 }
 
