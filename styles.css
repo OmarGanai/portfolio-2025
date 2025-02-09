@@ -574,4 +574,28 @@ section h2 {
     object-fit: cover;
     object-position: center 25%;  /* Move focus point up slightly */
     margin-right: var(--spacing-s);
+}
+
+/* Fun Facts Section */
+#intro {
+    margin-bottom: var(--spacing-xl);
+}
+
+.facts-content {
+    max-width: 65ch;
+}
+
+.facts-content p {
+    margin-bottom: var(--spacing-m);
+    font-size: var(--font-base);
+    line-height: 1.6;
+}
+
+.facts-content a {
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.facts-content a:hover {
+    text-decoration: underline;
 } 
