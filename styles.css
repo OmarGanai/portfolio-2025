@@ -22,9 +22,9 @@
     --spacing-m: 1rem;      /* 16px */
     --spacing-l: 1.5rem;    /* 24px */
     --spacing-xl: 3rem;    /* 48px - for larger spacing needs */
-    --font-small: 0.875rem; /* 14px */
-    --font-base: 1rem;      /* 16px */
-    --font-large: 1.125rem; /* 18px */
+    --font-small: 1rem;      /* 16px */
+    --font-base: 1.125rem;   /* 18px */
+    --font-large: 1.25rem;   /* 20px */
 }
 
 body {
@@ -78,7 +78,7 @@ body {
         box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);  /* Increased shadow */
         gap: var(--spacing-m);
         border: none;
-        font-size: 0.9rem;  /* Slightly smaller text */
+        font-size: var(--font-base);
         cursor: pointer;
         display: inline-flex;
         align-items: center;
@@ -87,13 +87,13 @@ body {
     }
 
     .arrow {
-        font-size: 0.9rem;
+        font-size: var(--font-base);
         opacity: 0.5;
         display: inline-block;
     }
 
     .toggle-text {
-        font-size: 0.9rem;  /* Match dropdown toggle */
+        font-size: var(--font-base);  /* Match dropdown toggle */
     }
 
     .dropdown-toggle:hover {
@@ -126,7 +126,7 @@ body {
     .dropdown-menu a {
         padding: var(--spacing-m) var(--spacing-l);
         color: var(--color-text);
-        font-size: 0.9rem;  /* Match left menu size */
+        font-size: var(--font-base);
         border-radius: 16px;
         display: flex;
         justify-content: space-between;
@@ -228,7 +228,7 @@ body {
         box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
         border-radius: 100px;
         padding: var(--spacing-m) var(--spacing-l);
-        font-size: 0.9rem;
+        font-size: var(--font-base);
         display: inline-flex;
         align-items: center;
         gap: var(--spacing-m);
@@ -267,7 +267,7 @@ body {
         text-decoration: none;
         padding: var(--spacing-m) var(--spacing-l);
         color: var(--color-text);
-        font-size: 0.9rem;
+        font-size: var(--font-base);
         border-radius: 16px;
         transition: background-color 0.2s ease;
         margin: 2px 0;
@@ -315,7 +315,7 @@ body {
         box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
         border-radius: 100px;
         padding: var(--spacing-m) var(--spacing-l);
-        font-size: 0.9rem;
+        font-size: var(--font-base);
     }
 
     /* Ensure dropdown appears above content */
@@ -332,7 +332,7 @@ body {
 .site-title {
     display: flex;
     align-items: center;
-    font-size: var(--font-large);
+    font-size: 1.5rem;  /* Larger site title */
     font-weight: 500;
     letter-spacing: -0.02em;
     margin-bottom: var(--spacing-l);
@@ -381,24 +381,17 @@ body {
 
 /* Content Sections */
 section {
-    margin-bottom: var(--spacing-l);  /* Reduced from xl to l */
-    padding-bottom: var(--spacing-l);  /* Reduced from xl to l */
+    margin-bottom: var(--spacing-xl);  /* Increase spacing between sections */
+    padding-bottom: var(--spacing-l);   /* Add padding for more breathing room */
     border-bottom: 1px solid var(--color-border);
     scroll-margin-top: var(--spacing-m);
 }
 
-/* Remove border from last section */
+/* Remove extra spacing from last section */
 section:last-child {
-    border-bottom: none;
     margin-bottom: 0;
     padding-bottom: 0;
-}
-
-section h2 {
-    margin-bottom: var(--spacing-l);
-    font-size: var(--font-large);
-    font-weight: 600;
-    color: var(--color-text);
+    border-bottom: none;
 }
 
 /* Work Section */
@@ -410,6 +403,8 @@ section h2 {
 
 .work-item:last-child {
     border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .work-item h3 {
@@ -417,6 +412,44 @@ section h2 {
     margin-bottom: var(--spacing-xs);
     font-size: var(--font-base);
     font-weight: 500;
+}
+
+/* Blog Posts */
+.blog-post {
+    margin-bottom: var(--spacing-xl);  /* Match section spacing */
+}
+
+.blog-post:last-child {
+    margin-bottom: 0;
+}
+
+.blog-post h3 {
+    font-size: var(--font-base);
+    font-weight: 500;
+}
+
+.post-date {
+    margin: 0.5rem 0 1rem 0;
+}
+
+.read-more {
+    color: var(--color-text);
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 1rem;
+    border-bottom: 1px solid var(--color-text);
+}
+
+.read-more:hover {
+    border-bottom: 2px solid var(--color-text);
+}
+
+/* Section Headers */
+section h2 {
+    margin-bottom: var(--spacing-l);
+    font-size: 1.5rem;  /* Larger section headings */
+    font-weight: 600;
+    color: var(--color-text);
 }
 
 /* Update date styling */
@@ -450,32 +483,6 @@ section h2 {
 }
 
 .project-link:hover {
-    border-bottom: 2px solid var(--color-text);
-}
-
-/* Blog Posts */
-.blog-post {
-    margin-bottom: var(--spacing-l);
-}
-
-.blog-post h3 {
-    font-size: var(--font-base);
-    font-weight: 500;
-}
-
-.post-date {
-    margin: 0.5rem 0 1rem 0;
-}
-
-.read-more {
-    color: var(--color-text);
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 1rem;
-    border-bottom: 1px solid var(--color-text);
-}
-
-.read-more:hover {
     border-bottom: 2px solid var(--color-text);
 }
 
