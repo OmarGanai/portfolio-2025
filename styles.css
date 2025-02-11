@@ -359,14 +359,13 @@ body {
 .social-links {
     list-style: none;
     padding: 0;
-    margin-top: var(--spacing-l);
-    margin-bottom: 0;  /* Remove bottom margin */
-    border-top: 1px solid var(--color-border);
-    padding-top: var(--spacing-l);
+    margin-top: var(--spacing-l);  /* Space after divider */
+    border-top: 1px solid var(--color-border);  /* Add divider line */
+    padding-top: var(--spacing-l);  /* Space after divider */
 }
 
-.social-links li:last-child {
-    margin-bottom: 0;  /* Remove margin from last social link */
+.social-links li {
+    margin-bottom: var(--spacing-xs);
 }
 
 .social-links a {
@@ -424,30 +423,52 @@ section:last-child {
     font-size: var(--font-base);
 }
 
-.role-progression {
-    padding-left: var(--spacing-m);
-    border-left: 1px solid var(--color-border);
-}
-
+/* Role styling */
 .role {
-    margin-bottom: var(--spacing-l);
     position: relative;
+    margin-bottom: var(--spacing-l);
+    padding-left: var(--spacing-l);
 }
 
 .role:last-child {
     margin-bottom: 0;
 }
 
+/* Timeline styling */
+.role-progression {
+    position: relative;
+    padding-left: 0;
+    margin-top: var(--spacing-m);
+}
+
+/* Timeline line */
+.role-progression::before {
+    content: "";
+    position: absolute;
+    left: -0.5px;
+    top: 14px;
+    bottom: 14px;
+    width: 1px;
+    background: var(--color-border);
+}
+
+/* Timeline dots */
 .role::before {
     content: "";
     position: absolute;
-    left: calc(-1 * var(--spacing-m) - 5px);
-    top: 8px;
+    left: -4.5px;
+    top: 10px;
     width: 9px;
     height: 9px;
-    background: var(--color-background);
-    border: 1px solid var(--color-border);
+    background: var(--color-light-accent);  /* Lighter grey fill */
+    border: 1px solid var(--color-text);  /* Keep dark border */
     border-radius: 50%;
+    z-index: 1;
+}
+
+/* Habitry role */
+.work-item:last-child .role {
+    padding-left: var(--spacing-l);
 }
 
 .role .date {
@@ -458,7 +479,7 @@ section:last-child {
 
 .role .title {
     font-weight: 500;
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: var(--spacing-m);
 }
 
 /* Blog Posts */
@@ -646,15 +667,16 @@ section h2 {
 
 /* Pong Game Styling */
 .pong-container {
-    margin-top: var(--spacing-l);  /* Consistent spacing after social links */
+    margin-top: var(--spacing-l);
     padding-top: var(--spacing-l);
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid var(--color-border);  /* Divider above pong game */
+    width: 180px;
 }
 
 .pong-game {
     width: 100%;
     height: 120px;
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--color-border);  /* Border around game canvas */
     border-radius: 4px;
     overflow: hidden;
     background: var(--color-background);
