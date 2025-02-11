@@ -332,10 +332,11 @@ body {
 .site-title {
     display: flex;
     align-items: center;
-    font-size: 1.5rem;  /* Larger site title */
+    font-size: 1.25rem;  /* Reduced from 1.5rem */
     font-weight: 500;
     letter-spacing: -0.02em;
     margin-bottom: var(--spacing-l);
+    white-space: nowrap;  /* Prevent wrapping */
 }
 
 /* Navigation Links */
@@ -553,11 +554,11 @@ section h2 {
 
 /* Profile Image Styling */
 .profile-image {
-    width: 40px;  /* Slightly smaller circle */
-    height: 40px;
+    width: 32px;  /* Reduced from 40px */
+    height: 32px;  /* Reduced from 40px */
     border-radius: 50%;
     object-fit: cover;
-    object-position: center 25%;  /* Move focus point up slightly */
+    object-position: center 25%;
     margin-right: var(--spacing-s);
 }
 
