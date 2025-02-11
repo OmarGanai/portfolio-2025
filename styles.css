@@ -359,13 +359,14 @@ body {
 .social-links {
     list-style: none;
     padding: 0;
-    margin-top: var(--spacing-l);  /* Space after divider */
-    border-top: 1px solid var(--color-border);  /* Add divider line */
-    padding-top: var(--spacing-l);  /* Space after divider */
+    margin-top: var(--spacing-l);
+    margin-bottom: 0;  /* Remove bottom margin */
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--spacing-l);
 }
 
-.social-links li {
-    margin-bottom: var(--spacing-xs);
+.social-links li:last-child {
+    margin-bottom: 0;  /* Remove margin from last social link */
 }
 
 .social-links a {
@@ -397,8 +398,8 @@ section:last-child {
 
 /* Work Section */
 .work-item {
-    margin-bottom: var(--spacing-m);
-    padding-bottom: var(--spacing-m);
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-l);
     border-bottom: 1px solid var(--color-border);
 }
 
@@ -408,11 +409,56 @@ section:last-child {
     padding-bottom: 0;
 }
 
-.work-item h3 {
-    color: var(--color-text);
+.company-header {
+    margin-bottom: var(--spacing-m);
+}
+
+.company-header h3 {
+    font-size: var(--font-large);
+    font-weight: 600;
     margin-bottom: var(--spacing-xs);
+}
+
+.company-role {
+    color: var(--color-muted);
     font-size: var(--font-base);
+}
+
+.role-progression {
+    padding-left: var(--spacing-m);
+    border-left: 1px solid var(--color-border);
+}
+
+.role {
+    margin-bottom: var(--spacing-l);
+    position: relative;
+}
+
+.role:last-child {
+    margin-bottom: 0;
+}
+
+.role::before {
+    content: "";
+    position: absolute;
+    left: calc(-1 * var(--spacing-m) - 5px);
+    top: 8px;
+    width: 9px;
+    height: 9px;
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+}
+
+.role .date {
+    font-size: var(--font-small);
+    color: var(--color-muted);
+    margin-bottom: var(--spacing-xs);
+}
+
+.role .title {
     font-weight: 500;
+    margin-bottom: var(--spacing-xs);
 }
 
 /* Blog Posts */
@@ -600,16 +646,15 @@ section h2 {
 
 /* Pong Game Styling */
 .pong-container {
-    margin-top: var(--spacing-l);
+    margin-top: var(--spacing-l);  /* Consistent spacing after social links */
     padding-top: var(--spacing-l);
-    border-top: 1px solid var(--color-border);  /* Divider above pong game */
-    width: 180px;
+    border-top: 1px solid var(--color-border);
 }
 
 .pong-game {
     width: 100%;
     height: 120px;
-    border: 1px solid var(--color-border);  /* Border around game canvas */
+    border: 1px solid var(--color-border);
     border-radius: 4px;
     overflow: hidden;
     background: var(--color-background);
