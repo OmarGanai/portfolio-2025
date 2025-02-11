@@ -461,7 +461,7 @@ section:last-child {
     width: 9px;
     height: 9px;
     background: var(--color-light-accent);  /* Light grey fill */
-    border: 1px solid #DBDBDB;  /* Custom color: slightly darker than --color-border */
+    border: 1px solid #BFBFBF;  /* Custom color: Another 10% darker */
     border-radius: 50%;
     z-index: 1;
 }
