@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Omar Ganai - Portfolio</title>
+    <title>Omar Ganai: Work, Writing, and More</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,15 +16,18 @@
         <ul class="nav-links">
             <li><a href="#intro">Intro</a></li>
             <li><a href="#work">Work</a></li>
-            <li><a href="#projects">Projects</a></li>
             <li><a href="#writing">Writing</a></li>
         </ul>
         <ul class="social-links">
-            <li><a href="#" target="_blank">Twitter ↗</a></li>
-            <li><a href="#" target="_blank">LinkedIn ↗</a></li>
-            <li><a href="#" target="_blank">GitHub ↗</a></li>
-            <li><a href="#" target="_blank">Email ↗</a></li>
+            <li><a href="https://x.com/omarganai" target="_blank">Twitter ↗</a></li>
+            <li><a href="https://www.linkedin.com/in/omarganai/" target="_blank">LinkedIn ↗</a></li>
+            <li><a href="https://github.com/omarganai" target="_blank">GitHub ↗</a></li>
         </ul>
+        <div class="pong-container">
+            <div class="pong-game">
+                <canvas id="pongCanvas" width="180" height="120"></canvas>
+            </div>
+        </div>
     </nav>
 
     <!-- Mobile Header -->
@@ -48,7 +51,6 @@
                     <li><a href="#" class="active">All posts</a></li>
                     <li><a href="#intro">Intro</a></li>
                     <li><a href="#work">Work</a></li>
-                    <li><a href="#projects">Projects</a></li>
                     <li><a href="#writing">Writing</a></li>
                 </ul>
             </div>
@@ -57,77 +59,85 @@
         <section id="intro">
             <h2>Intro</h2>
             <div class="intro-content">
-                <p>I'm a Product Manager redefining mentorship at <a href="https://twitter.com/10KCoffees" target="_blank">@10KCoffees</a>.</p>
-                <p>When I'm not building products, you'll find me lifting weights, creating memories with <a href="https://twitter.com/ivylao_" target="_blank">@ivylao_</a>, or strangling friends legally (aka Brazilian Jiu-Jitsu).</p>
+                <p>A behavioral scientist turned product manager, on a mission to bring personalized coaching & development to everyone.</p>
+                
+                <p>I help companies solve what keeps their leaders up at night — how to get employees to actually use the technology they've invested in.</p>
+                
+                <p>Most recently, I've helped grow enterprise platforms from <$1M to $10M+ ARR by turning manual spreadsheets into mentorship programs that scale.</p>
+                
+                <p>My work has helped hundreds of thousands of employees across 50+ Fortune 500 companies grow their careers through mentorship, creating 1.5M+ successful connections.</p>
+                
+                <p>When I'm not building products, you'll find me lifting weights, creating memories with my future wife, or practicing Brazilian Jiu-Jitsu.</p>
             </div>
         </section>
 
         <section id="work">
             <h2>Work</h2>
             <div class="work-item">
-                <p class="date">2021 - Present</p>
+                <p class="date">2022 - Present</p>
                 <div class="content">
-                    <h3>Senior Product Manager at AIScale</h3>
-                    <p>Leading AI product initiatives for enterprise customers. Launched an AI-powered document processing pipeline that reduced manual data entry by 85%. Developed go-to-market strategy for our LLM-based content generation platform. Upskilled in prompt engineering and RAG architecture to better collaborate with ML teams.</p>
+                    <h3>Senior Product Manager at Ten Thousand Coffees</h3>
+                    <p>Built enterprise data integrations, enabling rapid adoption across Fortune 500 companies.</p>
                 </div>
             </div>
             <div class="work-item">
-                <h3>Product Manager at SaaSify</h3>
-                <p class="date">2018 - 2021</p>
-                <p>Managed B2B analytics and reporting suite used by Fortune 500 companies. Introduced automated insights feature using basic ML models, increasing user engagement by 40%. Started learning Python to prototype AI features and communicate better with engineering.</p>
+                <p class="date">2020 - 2022</p>
+                <div class="content">
+                    <h3>Product Manager at Ten Thousand Coffees</h3>
+                    <p>Scaled executive engagement to drive expansion revenue.</p>
+                </div>
             </div>
             <div class="work-item">
-                <h3>Associate PM at EnterpriseFlow</h3>
-                <p class="date">2016 - 2018</p>
-                <p>Owned workflow automation products for enterprise clients. Developed deep understanding of B2B SaaS dynamics and enterprise sales cycles. Recognized need for technical PM skills and began transition toward AI specialization.</p>
+                <p class="date">2018 - 2020</p>
+                <div class="content">
+                    <h3>Product Manager at Ten Thousand Coffees</h3>
+                    <p>Led matching algorithm optimization and new user activation initiatives.</p>
+                </div>
             </div>
-        </section>
-
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="project-card">
-                <h3>AI-Powered Content Calendar</h3>
-                <p class="tech-stack">LangChain • OpenAI • Streamlit</p>
-                <p>Built a tool that generates optimized content calendars based on company blog performance data. Uses GPT-4 for content ideation and RAG for maintaining brand voice consistency. Developed entirely through AI pair programming.</p>
-                <a href="#" class="project-link">View Project →</a>
-            </div>
-            <div class="project-card">
-                <h3>Customer Feedback Analyzer</h3>
-                <p class="tech-stack">Python • Hugging Face • Tableau</p>
-                <p>Created a sentiment analysis dashboard for customer feedback using open-source LLMs. Automated monthly insight reports that previously took our team 20 hours to compile. Built using AI coding assistants.</p>
-                <a href="#" class="project-link">View Project →</a>
-            </div>
-            <div class="project-card">
-                <h3>AI Feature Prototyping Kit</h3>
-                <p class="tech-stack">Next.js • Vercel • OpenAI</p>
-                <p>Developed a rapid prototyping toolkit for AI features. Enables PMs to quickly test AI concepts before engineering investment. Includes templates for common use cases like classification and generation.</p>
-                <a href="#" class="project-link">View Project →</a>
+            <div class="work-item">
+                <p class="date">2014 - 2018</p>
+                <div class="content">
+                    <h3>Product Manager & Customer Success Manager at Habitry</h3>
+                    <p>Built data-driven coaching platform with 16,000 active users. Led customer adoption strategy for non-technical users.</p>
+                </div>
             </div>
         </section>
 
         <section id="writing">
             <h2>Writing</h2>
             <article class="blog-post">
-                <h3>The Full Stack PM's Guide to LLM Integration</h3>
-                <p class="post-date">March 15, 2024</p>
-                <p>A comprehensive guide for PMs on integrating LLMs into B2B products. Covers technical architecture considerations, prompt engineering best practices, and how to evaluate LLM performance in production.</p>
-                <a href="#" class="read-more">Read More →</a>
+                <h3>The Nagging Issues of Nudging</h3>
+                <p>An epic rant against the widespread practice of nudging written with my friend and mentor, Steven M. Ledbetter</p>
+                <a href="https://medium.com/practical-motivation-science/the-nagging-issues-of-nudging-f0af3a8f8b5" class="read-more">Read More →</a>
             </article>
+
             <article class="blog-post">
-                <h3>From Traditional PM to AI Builder</h3>
-                <p class="post-date">February 28, 2024</p>
-                <p>My journey from traditional B2B product management to building AI features. Includes learning resources, key technical concepts for PMs, and strategies for effective collaboration with ML teams.</p>
-                <a href="#" class="read-more">Read More →</a>
+                <h3>Making Communities</h3>
+                <p>A look into what the psychology of motivation has to teach us about the oldest and most effective technology for scaling behavior change.</p>
+                <a href="https://medium.com/practical-motivation-science/making-communities-7dc34298de41" class="read-more">Read More →</a>
             </article>
+
             <article class="blog-post">
-                <h3>Prototyping AI Features with No-Code Tools</h3>
-                <p class="post-date">January 10, 2024</p>
-                <p>How to validate AI feature concepts quickly using no-code tools and AI assistants. Real examples of prototypes that went from concept to production features.</p>
-                <a href="#" class="read-more">Read More →</a>
+                <h3>How to Build a SaaS Product That Coaches Customers to Success</h3>
+                <p>With business software, the goal is to maximize expertise, not engagement. Here's what I've noticed about building a product that coaches users to success.</p>
+                <a href="https://www.linkedin.com/pulse/how-build-saas-product-coaches-customers-success-omar-ganai/" class="read-more">Read More →</a>
+            </article>
+
+            <article class="blog-post">
+                <h3>Motivating Humans: An Introduction to Self-Determination Theory</h3>
+                <p>What it takes to motivate pesky free-range humans, and why.</p>
+                <a href="https://medium.com/practical-motivation-science/motivating-humans-cbf9494eddf1" class="read-more">Read More →</a>
+            </article>
+
+            <article class="blog-post">
+                <h3>How to Motivate People with Leaderboards</h3>
+                <p>An analysis of the behavior change techniques used in the best and worst leaderboards found in software products.</p>
+                <a href="https://medium.com/practical-motivation-science/how-to-motivate-with-leaderboards-da5a461fb2f6" class="read-more">Read More →</a>
             </article>
         </section>
     </main>
 
     <script src="script.js"></script>
+    <script src="pong.js"></script>
 </body>
 </html> 

@@ -6,22 +6,25 @@
 }
 
 :root {
-    --color-background: #FAF7F2;
-    --color-text: #1A1A1A;
-    --color-muted: #8C8C8C;
-    --color-accent: #D4C4B4;
-    --color-light-accent: #E8E2D7;
-    --color-border: #E5E0DA;
+    /* Monochromatic color palette */
+    --color-background: #FFFFFF;  /* Pure white background */
+    --color-text: #1A1A1A;       /* Almost black for text */
+    --color-muted: #6E6E6E;      /* Medium gray for secondary text */
+    --color-accent: #F5F5F5;     /* Light gray for highlights */
+    --color-light-accent: #FAFAFA; /* Very light gray for hover states */
+    --color-border: #E5E5E5;      /* Light gray for borders */
+    --color-toggle: #FFFFFF;      /* White for toggle background */
+    --color-toggle-hover: #F5F5F5; /* Light gray for toggle hover */
+    
+    /* Keep existing spacing and font variables */
     --spacing-xs: 0.5rem;   /* 8px */
     --spacing-s: 0.75rem;   /* 12px */
     --spacing-m: 1rem;      /* 16px */
     --spacing-l: 1.5rem;    /* 24px */
+    --spacing-xl: 3rem;    /* 48px - for larger spacing needs */
     --font-small: 0.875rem; /* 14px */
     --font-base: 1rem;      /* 16px */
     --font-large: 1.125rem; /* 18px */
-    --color-toggle: #FFFFFF;  /* New color for toggle button */
-    --color-toggle-hover: #F5F5F5;  /* Even lighter shade for hover */
-    --spacing-xl: 3rem;    /* 48px - for larger spacing needs */
 }
 
 body {
@@ -378,14 +381,23 @@ body {
 
 /* Content Sections */
 section {
-    margin-bottom: var(--spacing-l);
+    margin-bottom: var(--spacing-l);  /* Reduced from xl to l */
+    padding-bottom: var(--spacing-l);  /* Reduced from xl to l */
+    border-bottom: 1px solid var(--color-border);
     scroll-margin-top: var(--spacing-m);
 }
 
+/* Remove border from last section */
+section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
 section h2 {
-    margin-bottom: var(--spacing-m);
+    margin-bottom: var(--spacing-l);
     font-size: var(--font-large);
-    font-weight: 500;
+    font-weight: 600;
     color: var(--color-text);
 }
 
@@ -494,40 +506,6 @@ section h2 {
     margin-top: var(--spacing-l);
 }
 
-/* Theme Variables */
-:root[data-theme="light"] {
-    --color-background: #FAF7F2;
-    --color-text: #1A1A1A;
-    --color-muted: #8C8C8C;
-    --color-accent: #D4C4B4;
-    --color-light-accent: #E8E2D7;
-    --color-border: #E5E0DA;
-    --color-toggle: #FFFFFF;
-    --color-toggle-hover: #F5F5F5;
-}
-
-:root[data-theme="dark"] {
-    --color-background: #1A1A1A;
-    --color-text: #FFFFFF;
-    --color-muted: #8C8C8C;
-    --color-accent: #2D2D2D;
-    --color-light-accent: #333333;
-    --color-border: #404040;
-    --color-toggle: #2D2D2D;
-    --color-toggle-hover: #333333;
-}
-
-:root[data-theme="solarized"] {
-    --color-background: #FDF6E3;
-    --color-text: #657B83;
-    --color-muted: #93A1A1;
-    --color-accent: #EEE8D5;
-    --color-light-accent: #F5EFDC;
-    --color-border: #EEE8D5;
-    --color-toggle: #FDF6E3;
-    --color-toggle-hover: #EEE8D5;
-}
-
 /* Theme Toggle Button */
 .theme-toggle {
     position: fixed;
@@ -576,26 +554,103 @@ section h2 {
     margin-right: var(--spacing-s);
 }
 
-/* Fun Facts Section */
+/* Intro Section */
 #intro {
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-l);  /* Match other sections */
 }
 
-.facts-content {
-    max-width: 65ch;
+.intro-content {
+    max-width: 65ch;  /* Match main content width */
 }
 
-.facts-content p {
-    margin-bottom: var(--spacing-m);
+.intro-content p {
+    margin-bottom: var(--spacing-l);  /* Reduce from xl to l (from 3rem to 1.5rem) */
     font-size: var(--font-base);
     line-height: 1.6;
 }
 
-.facts-content a {
-    color: var(--color-text);
-    text-decoration: none;
+/* Remove margin from last paragraph */
+.intro-content p:last-child {
+    margin-bottom: 0;
 }
 
-.facts-content a:hover {
-    text-decoration: underline;
+/* Remove old facts-content styles since we're not using them anymore */
+.facts-content {
+    display: none;
+}
+
+/* Add subtle emphasis to key numbers/metrics */
+.metric {
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+/* Reduce overall text width for better readability */
+.main-content {
+    max-width: 60ch;  /* Slightly narrower than before */
+}
+
+/* Pong Game Styling */
+.pong-container {
+    margin-top: var(--spacing-l);
+    padding-top: var(--spacing-l);
+    border-top: 1px solid var(--color-border);  /* Divider above pong game */
+    width: 180px;
+}
+
+.pong-game {
+    width: 100%;
+    height: 120px;
+    border: 1px solid var(--color-border);  /* Border around game canvas */
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--color-background);
+}
+
+#pongCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: pointer;
+}
+
+#pongCanvas:hover {
+    background: var(--color-accent);
+}
+
+/* Metrics Toggle Styling */
+.metrics-toggle {
+    margin: var(--spacing-l) 0;
+}
+
+.metrics-content {
+    max-height: 1000px;
+    opacity: 1;
+    transition: all 0.3s ease-out;
+}
+
+.metrics-content.hidden {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.toggle-button {
+    background: none;
+    border: none;
+    color: var(--color-text);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: var(--font-base);
+    padding: 0;
+    text-align: left;
+}
+
+.toggle-button:hover {
+    opacity: 0.7;
+}
+
+/* Remove the arrow rotation since we're using > and < */
+.metrics-toggle.active .toggle-button::after {
+    content: none;
 } 

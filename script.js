@@ -106,4 +106,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    const toggleButton = document.querySelector('.toggle-button');
+    const metricsContent = document.querySelector('.metrics-content');
+    const metricsToggle = document.querySelector('.metrics-toggle');
+    
+    if (toggleButton) {
+        toggleButton.addEventListener('click', () => {
+            metricsContent.classList.toggle('hidden');
+            metricsToggle.classList.toggle('active');
+            toggleButton.textContent = metricsContent.classList.contains('hidden') 
+                ? '> Tell me more' 
+                : '< Show less';
+        });
+    }
 }); 
