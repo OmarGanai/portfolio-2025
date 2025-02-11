@@ -728,4 +728,12 @@ section h2 {
 /* Remove the arrow rotation since we're using > and < */
 .metrics-toggle.active .toggle-button::after {
     content: none;
+}
+
+.inline-emoji {
+    width: 48px;  /* Increased from 32px */
+    height: 48px;  /* Increased from 32px */
+    vertical-align: middle;
+    margin: 0 2px;
+    object-fit: contain;
 } 
