@@ -144,8 +144,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Initialize the game
-    const canvas = document.getElementById('patternCanvas');
+    const canvas = document.getElementById('pongCanvas');
     if (canvas) {
-        const game = new PatternPredictor(canvas);
+        const pong = new Pong(canvas);
     }
 }); 
