@@ -190,32 +190,20 @@ body {
     }
 
     .mobile-header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        padding: var(--spacing-s) var(--spacing-l);  /* Match desktop padding */
-        background-color: var(--color-background);
-        border-bottom: 1px solid var(--color-border);
         display: flex;
+        padding: var(--spacing-m);
+        border-bottom: 1px solid var(--color-border);
+        margin-bottom: var(--spacing-s);  /* Reduced from spacing-l to spacing-s */
         justify-content: space-between;
-        z-index: 1000;
-        height: 60px;
+        align-items: center;
     }
 
     .main-content {
-        margin-top: 60px;
-        padding: 0 var(--spacing-l);  /* Match desktop padding */
+        padding: 0 var(--spacing-l);
     }
 
     .mobile-controls {
-        position: sticky;
-        top: 60px;
-        padding: var(--spacing-l);  /* Match desktop padding */
-        margin: 0 calc(-1 * var(--spacing-l));  /* Update margin to match new padding */
-        background: transparent;
-        border-bottom: none;
-        z-index: 999;
+        margin-bottom: var(--spacing-l);  /* Add space after the menu instead */
     }
 
     .mobile-dropdown {
@@ -325,6 +313,18 @@ body {
 
     .mobile-header .site-title {
         margin-bottom: 0;
+    }
+
+    /* Hide desktop theme toggle on mobile */
+    .desktop-nav .theme-toggle {
+        display: none;
+    }
+
+    /* Mobile theme toggle styling */
+    .mobile-theme-toggle {
+        margin: 0;
+        padding: 0;
+        border: none;
     }
 }
 
@@ -581,44 +581,6 @@ section h2 {
     margin-top: var(--spacing-l);
 }
 
-/* Theme Toggle Button */
-.theme-toggle {
-    position: fixed;
-    top: var(--spacing-l);
-    right: var(--spacing-l);
-    padding: var(--spacing-s);
-    background: var(--color-toggle);
-    border: none;
-    border-radius: 100px;
-    cursor: pointer;
-    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-}
-
-.theme-toggle:hover {
-    background: var(--color-toggle-hover);
-}
-
-.theme-icon {
-    font-size: 1.2rem;
-    display: block;
-}
-
-/* Mobile adjustments */
-@media screen and (max-width: 768px) {
-    .theme-toggle {
-        position: relative;
-        top: auto;
-        right: auto;
-        margin-left: var(--spacing-m);
-    }
-
-    .mobile-controls {
-        display: flex;
-        align-items: center;
-    }
-}
-
 /* Profile Image Styling */
 .profile-image {
     width: 32px;  /* Reduced from 40px */
@@ -669,17 +631,16 @@ section h2 {
 .pong-container {
     margin-top: var(--spacing-l);
     padding-top: var(--spacing-l);
-    border-top: 1px solid var(--color-border);  /* Divider above pong game */
-    width: 180px;
+    border-top: 1px solid var(--color-border);
 }
 
 .pong-game {
-    width: 100%;
+    width: 180px;
     height: 120px;
-    border: 1px solid var(--color-border);  /* Border around game canvas */
-    border-radius: 4px;
+    border-radius: 8px;
     overflow: hidden;
-    background: var(--color-background);
+    background: var(--color-light-accent);
+    position: relative;
 }
 
 #pongCanvas {
@@ -687,10 +648,14 @@ section h2 {
     height: 100%;
     display: block;
     cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+    image-rendering: auto;  /* Improve rendering quality */
 }
 
 #pongCanvas:hover {
-    background: var(--color-accent);
+    opacity: 1;
+    background: none;
 }
 
 /* Metrics Toggle Styling */
@@ -736,4 +701,53 @@ section h2 {
     vertical-align: middle;
     margin: 0 2px;
     object-fit: contain;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    margin-top: var(--spacing-l);
+    padding-top: var(--spacing-l);
+    border-top: 1px solid var(--color-border);
+}
+
+.theme-btn {
+    padding: var(--spacing-xs);
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+    color: var(--color-text);
+}
+
+.theme-btn:hover {
+    opacity: 1;
+}
+
+.theme-btn svg {
+    display: block;
+    width: 16px;
+    height: 16px;
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 768px) {
+    .theme-toggle {
+        margin: 0;
+        padding: 0;
+        border: none;
+        margin-left: var(--spacing-m);
+    }
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] {
+    --color-background: #1a1a1a;
+    --color-text: #e0e0e0;
+    --color-muted: #888;
+    --color-accent: #4a9eff;
+    --color-border: #333;
+    --color-toggle: #333;
+    --color-toggle-hover: #444;
+    --color-light-accent: #242424;
 } 

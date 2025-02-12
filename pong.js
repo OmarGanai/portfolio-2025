@@ -99,7 +99,7 @@ class Pong {
             this.playerScore++;
             this.showMessage('You score!');
             if (this.playerScore >= this.winningScore) {
-                this.showMessage('Congratulations - You win!');
+                this.showMessage('You win!');
                 this.resetGame();
             }
             this.resetBall();
@@ -167,8 +167,11 @@ class Pong {
         
         // Draw scores and messages
         this.ctx.fillStyle = this.messageColor;
-        this.ctx.font = '10px -apple-system, BlinkMacSystemFont, sans-serif';
         this.ctx.textAlign = 'center';
+        this.ctx.textBaseline = 'middle';
+        this.ctx.font = '16px system-ui, -apple-system, sans-serif';  // Use system font
+        this.ctx.imageSmoothingEnabled = true;  // Enable anti-aliasing
+        this.ctx.imageSmoothingQuality = 'high';
         
         // Draw pause/play message
         if (this.isPaused) {
@@ -178,7 +181,7 @@ class Pong {
         }
         
         // Draw scores
-        this.ctx.font = '12px -apple-system, BlinkMacSystemFont, sans-serif';
+        this.ctx.font = '16px system-ui, -apple-system, sans-serif';
         this.ctx.textAlign = 'left';
         this.ctx.fillText(this.playerScore, 20, 20);
         this.ctx.textAlign = 'right';

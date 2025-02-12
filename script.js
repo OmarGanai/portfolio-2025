@@ -120,4 +120,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 : '< Show less';
         });
     }
+
+    // Theme switching functionality
+    const themeButtons = document.querySelectorAll('.theme-btn');
+    const root = document.documentElement;
+
+    // Set initial theme based on localStorage or system preference
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    setTheme(savedTheme);
+
+    // Add click handlers to all theme buttons
+    themeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const currentTheme = root.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            setTheme(newTheme);
+        });
+    });
+
+    function setTheme(theme) {
+        root.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+    }
 }); 
