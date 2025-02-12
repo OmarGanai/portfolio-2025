@@ -143,9 +143,17 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('theme', theme);
     }
 
-    // Initialize the game
-    const canvas = document.getElementById('pongCanvas');
-    if (canvas) {
-        const pong = new Pong(canvas);
+    // Secret menu item
+    const pongContainer = document.querySelector('.pong-container');
+    const secretLink = document.querySelector('.secret-link');
+    if (secretLink) {
+        secretLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            pongContainer.classList.add('visible');
+            const canvas = document.getElementById('pongCanvas');
+            if (canvas) {
+                const pong = new Pong(canvas);
+            }
+        });
     }
 }); 
