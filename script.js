@@ -142,4 +142,10 @@ document.addEventListener('DOMContentLoaded', () => {
         root.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
     }
+
+    // Initialize the game
+    const canvas = document.getElementById('patternCanvas');
+    if (canvas) {
+        const game = new PatternPredictor(canvas);
+    }
 }); 
