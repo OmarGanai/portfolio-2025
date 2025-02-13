@@ -6,30 +6,35 @@
 }
 
 :root {
-    /* Monochromatic color palette */
-    --color-background: #FFFFFF;  /* Pure white background */
-    --color-text: #1A1A1A;       /* Almost black for text */
-    --color-muted: #6E6E6E;      /* Medium gray for secondary text */
-    --color-accent: #F5F5F5;     /* Light gray for highlights */
-    --color-light-accent: #FAFAFA; /* Very light gray for hover states */
-    --color-border: #E5E5E5;      /* Light gray for borders */
+    /* More subtle color palette */
+    --color-background: #FFFFFF;
+    --color-text: #111111;
+    --color-muted: #757575;
+    --color-accent: #F7F7F7;
+    --color-light-accent: #FCFCFC;
+    --color-border: #EEEEEE;
     --color-toggle: #FFFFFF;      /* White for toggle background */
     --color-toggle-hover: #F5F5F5; /* Light gray for toggle hover */
     
-    /* Keep existing spacing and font variables */
+    /* Update spacing scale */
     --spacing-xs: 0.5rem;   /* 8px */
-    --spacing-s: 0.75rem;   /* 12px */
-    --spacing-m: 1rem;      /* 16px */
-    --spacing-l: 1.5rem;    /* 24px */
-    --spacing-xl: 3rem;    /* 48px - for larger spacing needs */
+    --spacing-s: 1rem;      /* 16px */
+    --spacing-m: 1.5rem;    /* 24px */
+    --spacing-l: 2rem;      /* 32px */
+    --spacing-xl: 4rem;     /* 64px */
     --font-small: 1rem;      /* 16px */
     --font-base: 1.125rem;   /* 18px */
     --font-large: 1.25rem;   /* 20px */
+    /* Typography */
+    --font-heading: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
+    --line-height-body: 1.6;
+    --line-height-heading: 1.3;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    line-height: 1.5;
+    font-family: var(--font-body);
+    line-height: var(--line-height-body);
     font-size: var(--font-base);
     background-color: var(--color-background);
     color: var(--color-text);
@@ -190,20 +195,32 @@ body {
     }
 
     .mobile-header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
         display: flex;
         padding: var(--spacing-m);
         border-bottom: 1px solid var(--color-border);
-        margin-bottom: var(--spacing-s);  /* Reduced from spacing-l to spacing-s */
+        margin-bottom: var(--spacing-s);
         justify-content: space-between;
         align-items: center;
-    }
-
-    .main-content {
-        padding: 0 var(--spacing-l);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        background: rgba(255, 255, 255, 0.8);
     }
 
     .mobile-controls {
-        margin-bottom: var(--spacing-l);  /* Add space after the menu instead */
+        position: sticky;
+        top: calc(var(--spacing-m) * 2 + 40px);  /* Header height + padding */
+        z-index: 999;
+        margin-bottom: var(--spacing-l);
+        background: transparent;
+        padding: var(--spacing-s) 0;
+    }
+
+    .main-content {
+        padding: var(--spacing-l) var(--spacing-l) var(--spacing-xl);
+        max-width: 100%;
     }
 
     .mobile-dropdown {
@@ -226,13 +243,15 @@ body {
     }
 
     .mobile-dropdown .dropdown-menu {
-        list-style: none;  /* Remove bullets */
-        padding-left: 0;   /* Remove default padding */
-        display: none;     /* Hidden by default */
+        list-style: none;
+        padding-left: 0;
+        display: none;
         position: absolute;
         top: calc(100% + 8px);
         left: 0;
-        background: var(--color-toggle);
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
         border-radius: 24px;
         box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
         padding: var(--spacing-m);
@@ -352,7 +371,32 @@ body {
 .nav-links a {
     text-decoration: none;
     color: var(--color-text);
-    font-size: var(--font-base);
+    font-size: 0.9375rem;
+    font-weight: 450;
+    transition: opacity 0.2s ease;
+    position: relative;
+    padding: 2px 0;
+}
+
+.nav-links a:hover {
+    opacity: 0.7;
+}
+
+/* Active section indicator */
+.nav-links a.active {
+    font-weight: 600;
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    left: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: var(--color-text);
 }
 
 /* Social Links - Match nav links styling */
@@ -371,19 +415,21 @@ body {
 .social-links a {
     color: var(--color-text);
     text-decoration: none;
-    font-size: var(--font-base);
+    font-size: 0.9375rem;  /* Match nav links */
+    font-weight: 450;      /* Match nav links */
+    transition: opacity 0.2s ease;
 }
 
 /* Hover states for all links */
 .nav-links a:hover,
 .social-links a:hover {
-    text-decoration: underline;
+    opacity: 0.7;
 }
 
 /* Content Sections */
 section {
-    margin-bottom: var(--spacing-xl);  /* Increase spacing between sections */
-    padding-bottom: var(--spacing-l);   /* Add padding for more breathing room */
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
     border-bottom: 1px solid var(--color-border);
     scroll-margin-top: var(--spacing-m);
 }
@@ -416,6 +462,8 @@ section:last-child {
     font-size: var(--font-large);
     font-weight: 600;
     margin-bottom: var(--spacing-xs);
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
 }
 
 .company-role {
@@ -449,7 +497,8 @@ section:last-child {
     top: 14px;
     bottom: 14px;
     width: 1px;
-    background: var(--color-border);
+    background: linear-gradient(to bottom, var(--color-border) 50%, transparent);
+    opacity: 0.7;
 }
 
 /* Timeline dots */
@@ -464,6 +513,12 @@ section:last-child {
     border: 1px solid #BFBFBF;  /* Custom color: Another 10% darker */
     border-radius: 50%;
     z-index: 1;
+    transform: scale(0.8);
+    transition: transform 0.2s ease;
+}
+
+.role:hover::before {
+    transform: scale(1);
 }
 
 /* Habitry role */
@@ -518,6 +573,9 @@ section h2 {
     font-size: 1.5rem;  /* Larger section headings */
     font-weight: 600;
     color: var(--color-text);
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+    line-height: var(--line-height-heading);
 }
 
 /* Update date styling */
@@ -627,31 +685,6 @@ section h2 {
     max-width: 60ch;  /* Slightly narrower than before */
 }
 
-/* Pong Game Styling */
-.pong-container {
-    display: none;  /* Hide by default */
-    margin-top: var(--spacing-l);
-    padding-top: var(--spacing-l);
-    border-top: 1px solid var(--color-border);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.pong-container.visible {
-    display: block;
-    opacity: 1;
-}
-
-#pongCanvas {
-    width: 100%;
-    height: 100%;
-    display: block;
-    cursor: pointer;
-    opacity: 0.7;
-    transition: opacity 0.2s ease;
-    image-rendering: auto;
-}
-
 /* Metrics Toggle Styling */
 .metrics-toggle {
     margin: var(--spacing-l) 0;
@@ -744,6 +777,16 @@ section h2 {
     --color-toggle: #333;
     --color-toggle-hover: #444;
     --color-light-accent: #242424;
+
+    /* Dark theme mobile header */
+    @media screen and (max-width: 768px) {
+        .mobile-header {
+            background: rgba(26, 26, 26, 0.8);
+        }
+        .mobile-dropdown .dropdown-menu {
+            background: rgba(26, 26, 26, 0.8);
+        }
+    }
 }
 
 .site-title-link {
@@ -758,11 +801,16 @@ section h2 {
     text-decoration: none;
 }
 
-.secret-link {
-    opacity: 0.6;
-    transition: opacity 0.2s ease;
+.current-role {
+    color: var(--color-text);
+    font-size: var(--font-base);
+    margin-top: var(--spacing-xs);
+    font-weight: 500;
 }
 
-.secret-link:hover {
-    opacity: 1;
+.company-impact {
+    margin-top: var(--spacing-m);
+    color: var(--color-text);
+    font-size: var(--font-base);
+    line-height: 1.6;
 } 

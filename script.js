@@ -143,17 +143,31 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('theme', theme);
     }
 
-    // Secret menu item
-    const pongContainer = document.querySelector('.pong-container');
-    const secretLink = document.querySelector('.secret-link');
-    if (secretLink) {
-        secretLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            pongContainer.classList.add('visible');
-            const canvas = document.getElementById('pongCanvas');
-            if (canvas) {
-                const pong = new Pong(canvas);
+    // Handle active section in navigation
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    
+    function setActiveSection() {
+        const fromTop = window.scrollY + 100; // Offset for better UX
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            
+            if (fromTop >= sectionTop && fromTop <= sectionTop + sectionHeight) {
+                const id = section.getAttribute('id');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('active');
+                    }
+                });
             }
         });
     }
+
+    // Update active section on scroll
+    window.addEventListener('scroll', setActiveSection);
+    // Set initial active section
+    setActiveSection();
 }); 
