@@ -146,6 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle active section in navigation
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-links a');
+    const mobileMenuLinks = document.querySelectorAll('.mobile-dropdown .dropdown-menu a');
     
     function setActiveSection() {
         const fromTop = window.scrollY + 100; // Offset for better UX
@@ -156,7 +157,20 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (fromTop >= sectionTop && fromTop <= sectionTop + sectionHeight) {
                 const id = section.getAttribute('id');
+                // Remove active class from all sections
+                sections.forEach(s => s.classList.remove('active'));
+                // Add active class to current section
+                section.classList.add('active');
+                
+                // Update desktop nav
                 navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('active');
+                    }
+                });
+                // Update mobile nav
+                mobileMenuLinks.forEach(link => {
                     link.classList.remove('active');
                     if (link.getAttribute('href') === `#${id}`) {
                         link.classList.add('active');
@@ -166,8 +180,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Update active section on scroll
-    window.addEventListener('scroll', setActiveSection);
     // Set initial active section
     setActiveSection();
+    
+    // Update active section on scroll
+    window.addEventListener('scroll', () => {
+        requestAnimationFrame(setActiveSection);
+    });
+
+    // Add click handler for portfolio card theme toggle
+    const portfolioThemeBtn = document.querySelector('.toggle-theme-btn');
+    if (portfolioThemeBtn) {
+        portfolioThemeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const currentTheme = root.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            setTheme(newTheme);
+        });
+    }
 }); 
