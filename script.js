@@ -149,11 +149,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuLinks = document.querySelectorAll('.mobile-dropdown .dropdown-menu a');
     
     function setActiveSection() {
-        const fromTop = window.scrollY + 100; // Offset for better UX
+        const fromTop = window.scrollY + 100;
         
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.offsetHeight;
+            
+            // Check if section is in viewport
+            if (window.scrollY + window.innerHeight > section.offsetTop + 100) {
+                section.classList.add('visible');
+            }
             
             if (fromTop >= sectionTop && fromTop <= sectionTop + sectionHeight) {
                 const id = section.getAttribute('id');
@@ -180,10 +185,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Set initial active section
+    // Initial check
     setActiveSection();
     
-    // Update active section on scroll
+    // Update on scroll
     window.addEventListener('scroll', () => {
         requestAnimationFrame(setActiveSection);
     });
