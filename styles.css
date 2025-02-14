@@ -138,7 +138,8 @@ body {
         align-items: center;
         text-decoration: none;
         transition: background-color 0.2s ease;
-        margin: 2px 0; /* Add slight spacing between items */
+        margin: 2px 0;
+        position: relative;
     }
 
     .dropdown-menu a::after {
@@ -158,6 +159,7 @@ body {
 
     .dropdown-menu a.active {
         background: var(--color-toggle-hover);
+        font-weight: 600;
     }
 
     /* Add checkmark for active item */
@@ -278,6 +280,7 @@ body {
         border-radius: 16px;
         transition: background-color 0.2s ease;
         margin: 2px 0;
+        position: relative;
     }
 
     /* Remove any bullet-related styling */
@@ -570,7 +573,7 @@ section:last-child {
 /* Section Headers */
 section h2 {
     margin-bottom: var(--spacing-l);
-    font-size: 1.5rem;  /* Larger section headings */
+    font-size: 1.5rem;
     font-weight: 600;
     color: var(--color-text);
     font-family: var(--font-heading);
@@ -813,4 +816,13 @@ section h2 {
     color: var(--color-text);
     font-size: var(--font-base);
     line-height: 1.6;
+}
+
+/* Active section indicator for mobile menu */
+.mobile-dropdown .dropdown-menu a.active {
+    font-weight: 600;
+}
+
+.mobile-dropdown .dropdown-menu a:not(.active):hover::after {
+    content: '→';
 } 
