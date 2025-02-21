@@ -950,4 +950,71 @@ section h2 {
 
 [data-theme="dark"] .toggle-theme-btn {
     background: #2a2a2a;
+}
+
+/* Special button for Tweet Spark */
+.spark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.spark-btn:hover {
+    transform: translateX(4px);
+    opacity: 1;
+}
+
+/* Lightning animation */
+.spark-icon {
+    display: inline-block;
+    transform-origin: center;
+    transition: all 0.2s ease;
+}
+
+@keyframes sparkFlash {
+    0% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.4); filter: brightness(1.5); text-shadow: 0 0 8px currentColor; }
+    100% { transform: scale(1); filter: brightness(1); }
+}
+
+.spark-btn:hover .spark-icon {
+    animation: sparkFlash 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Adjust dark mode flash effect */
+[data-theme="dark"] .spark-btn:hover .spark-icon {
+    text-shadow: 0 0 12px currentColor;
+}
+
+/* Special button for Skydoro */
+.sky-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sky-icon {
+    display: inline-block;
+    transform-origin: center;
+}
+
+@keyframes floatCloud {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-4px) rotate(5deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+.sky-btn:hover .sky-icon {
+    animation: floatCloud 2s ease-in-out infinite;
+}
+
+.sky-btn:hover {
+    transform: translateX(4px);
+    opacity: 1;
+    background: linear-gradient(120deg, #a1c4fd, #c2e9fb);
+}
+
+/* Dark theme gradient */
+[data-theme="dark"] .sky-btn:hover {
+    background: linear-gradient(120deg, #4a6fa1, #6b8cae);
 } 
