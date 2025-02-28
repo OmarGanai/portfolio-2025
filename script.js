@@ -1,4 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Add scroll to top for site title/logo
+    const siteTitleLinks = document.querySelectorAll('.site-title-link');
+    siteTitleLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+
     // Get both desktop and mobile dropdowns
     const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
     const dropdownMenus = document.querySelectorAll('.dropdown-menu');

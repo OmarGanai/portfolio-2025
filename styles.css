@@ -940,16 +940,25 @@ section h2 {
 /* Special button for portfolio card */
 .toggle-theme-btn {
     background: var(--color-background);
-    transition: all 0.3s ease;
-}
-
-.toggle-theme-btn:hover {
-    transform: rotate(180deg);
     opacity: 1;
 }
 
-[data-theme="dark"] .toggle-theme-btn {
-    background: #2a2a2a;
+.toggle-theme-btn:hover {
+    opacity: 1;
+}
+
+/* Rotation animation */
+@keyframes rotate360 {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.rotate-icon {
+    display: inline-block;
+}
+
+.toggle-theme-btn:hover .rotate-icon {
+    animation: rotate360 0.6s ease-in-out;
 }
 
 /* Special button for Tweet Spark */
